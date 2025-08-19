@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Omar Osama | Portfolio</title>
+  <meta name="description" content="Official portfolio of Omar Osama – Engineer & Developer (Robotics, Data, Web)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    :root{
+      --bg:#0f1115;            /* deep charcoal */
+      --card:#141823;          /* slightly lighter */
+      --text:#e8ecf1;          /* near-white */
+      --muted:#9aa3b2;         /* muted text */
+      --primary:#0a2e6e;       /* dark royal blue */
+      --primary-2:#c0c6d4;     /* silver */
+      --accent:#2b6fff;        /* bright royal blue */
+      --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0c0e13,#0f1115 30%,#0f1115);color:var(--text);font-family:"Inter",system-ui,Segoe UI,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:1000;background:rgba(15,17,21,.6);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{max-width:1100px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between;padding:10px 18px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+    .brand i{color:var(--accent)}
+    .links{display:flex;gap:16px;align-items:center}
+    .links a{padding:8px 12px;border-radius:12px;opacity:.9}
+    .links a:hover{background:rgba(255,255,255,.05)}
+    .cta{background:linear-gradient(90deg,var(--accent),#56a0ff);padding:10px 16px !important;color:#fff;border-radius:999px;box-shadow:0 6px 18px rgba(43,111,255,.35)}
+
+    /* LAYOUT */
+    .container{max-width:1100px;margin:auto;padding:24px}
+    section{padding:70px 0}
+    .sec-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}
+    .sec-head h2{margin:0;font-size:1.8rem}
+    .muted{color:var(--muted)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding:48px 0}
+    .badge{display:inline-flex;gap:8px;align-items:center;background:rgba(43,111,255,.12);color:#cfe0ff;border:1px solid rgba(43,111,255,.35);padding:6px 10px;border-radius:999px;font-size:.9rem}
+    .title{font-size:clamp(28px,3.6vw,48px);line-height:1.2;margin:14px 0 8px;font-weight:800}
+    .subtitle{color:var(--muted);font-size:1.05rem}
+    .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+    .btn{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.12);padding:12px 16px;border-radius:14px}
+    .btn:hover{border-color:rgba(255,255,255,.25);transform:translateY(-1px)}
+    .btn.primary{background:linear-gradient(90deg,var(--primary),var(--accent));border:none}
+    .btn.primary i{color:#fff}
+
+    /* CARDS & GRIDS */
+    .grid{display:grid;gap:18px}
+    .cols-3{grid-template-columns:repeat(3,1fr)}
+    .cols-2{grid-template-columns:repeat(2,1fr)}
+    .card{background:linear-gradient(180deg,#101522,var(--card));border:1px solid rgba(255,255,255,.07);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px dashed rgba(255,255,255,.2);border-radius:999px;color:#cbd5e1;font-size:.9rem}
+    .card h3{margin:10px 0 6px}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+
+    /* TIMELINE */
+    .timeline{position:relative;margin-top:10px}
+    .timeline:before{content:"";position:absolute;left:12px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,transparent,#405072,transparent)}
+    .t-item{position:relative;padding-left:42px;padding-block:14px}
+    .t-item:before{content:"";position:absolute;left:6px;top:22px;width:14px;height:14px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(43,111,255,.15)}
+
+    /* PROJECTS */
+    .project{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;align-items:center}
+    .project img{border-radius:16px;border:1px solid rgba(255,255,255,.08)}
+
+    /* FOOTER */
+    footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.07);color:#cbd5e1}
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      .hero,.project{grid-template-columns:1fr}
+      .cols-3{grid-template-columns:1fr}
+      .cols-2{grid-template-columns:1fr}
+      .nav-inner{gap:10px}
+    }
+    /* simple inputs */
+    label{display:block;margin-bottom:6px;color:#c9d4e2}
+    .input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0e1320;color:#e8ecf1}
+    .input:focus{outline:none;border-color:#4f7cff;box-shadow:0 0 0 3px rgba(79,124,255,.15)}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#home"><i class="fa-solid fa-hexagon"></i> Omar <span style="color:var(--primary-2)">Osama</span></a>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#certs">Certificates</a>
+        <a href="#contact" class="cta"><i class="fa-regular fa-paper-plane"></i>&nbsp;Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="home" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <span class="badge"><i class="fa-solid fa-bolt"></i> Engineer & Developer</span>
+        <h1 class="title">Hi, I'm <span style="color:#9ec1ff">Omar Osama</span> — I Undergraduate Mechatronics Engineering Student.</h1>
+        <p class="subtitle">I build practical solutions: from hexapod robots and a 3DOF robotic arm to modern websites and a Study Planner app. I care about performance and UX, using tools like ANSYS, Arduino, and JavaScript.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects"><i class="fa-solid fa-rocket"></i> See my work</a>
+          <a class="btn" href="#contact"><i class="fa-regular fa-envelope"></i> Get in touch</a>
+          <a class="btn" href="https://amaal.online/" target="_blank" rel="noreferrer"><i class="fa-solid fa-link"></i> Modern site</a>
+        </div>
+        <div class="skills" style="margin-top:16px">
+          <span class="chip"><i class="fa-brands fa-python"></i> C++</span>
+          <span class="chip"><i class="fa-solid fa-microchip"></i> Arduino</span>
+          <span class="chip"><i class="fa-solid fa-wrench"></i> ANSYS</span>
+          <span class="chip"><i class="fa-brands fa-js"></i> JS / HTML5 / CSS</span>
+          <span class="chip"><i class="fa-solid fa-robot"></i> Robotics</span>
+          <span class="chip"><i class="fa-solid fa-database"></i> Data Analytics</span>
+        </div>
+      </div>
+      <div>
+        <div class="card">
+          <!-- Replace with your own 1:1 image -->
+          <img style="border-radius:22px;aspect-ratio:1/1;object-fit:cover;border:1px solid rgba(255,255,255,.08)" src="1754740129311.png" alt="Portrait placeholder" />
+          <div class="skills" style="margin-top:12px">
+            <a class="chip" href="https://www.linkedin.com/in/omar-osama-58b893379/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+            <a class="chip" href="https://github.com/omaros23" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+            <a class="chip" href="mailto:omar.osama@example.com" aria-label="Email"><i class="fa-regular fa-envelope"></i> Email</a>
+            <a class="chip" href="t.me/hsbshsnww" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i> Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="sec-head">
+        <h2>About</h2>
+        <span class="muted">Quick intro</span>
+      </div>
+      <div class="card">
+        <p>
+          I'm an  Undergraduate Mechatronics Engineer Student focused on turning ideas into working mechanical and software prototypes. Hands-on with engines — I have <strong>disassembled and reassembled a full engine</strong> — and comfortable with simulation (ANSYS), Arduino projects, and modern web UIs.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <span class="muted">Tools & tech</span>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3><i class="fa-solid fa-code"></i> Web Development</h3>
+          <p class="muted">HTML5, CSS3, JavaScript, Bootstrap, GitHub Pages.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-robot"></i> Robotics & Electronics</h3>
+          <p class="muted">Arduino, Servo SG90, Ultrasonic sensors, schematic design in Proteus.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-chart-line"></i> Data Analytics</h3>
+          <p class="muted">Excel, Power Query, Python fundamentals for data analysis.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-gear"></i> Mechanics & CAD</h3>
+          <p class="muted">ANSYS, SolidWorks, Fusion 360, engine components & maintenance.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-diagram-project"></i> Project Skills</h3>
+          <p class="muted">Planning, documentation, technical writing, résumé building.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-language"></i> Languages</h3>
+          <p class="muted">Arabic (native), English (very good).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="sec-head">
+        <h2>Projects</h2>
+        <a class="muted" href="https://github.com/omaros23" target="_blank">All projects <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+      </div>
+      <div class="grid cols-2">
+        <div class="card project">
+          <div>
+            <h3>Bluetooth Car  </h3>
+            <p class="muted">It all started with a simple idea: "Why not build a smart car that I can control from my phone via Bluetooth?"
+That small thought evolved into a complete project combining engineering, programming, and creative design.</p>
+            <div class="skills">
+              <span class="chip">Arduino</span>
+              <span class="chip">CAD</span>
+              <span class="chip">C++</span>
+            </div>
+            <div class="hero-cta" style="margin-top:12px">
+             
+            </div>
+          </div>
+          <img src="Arduino-Bluetooth-Car-with-L293D.jpg" alt="Study Planner preview" />
+        </div>
+
+        <div class="card project">
+          <div>
+            <h3>Spider Robot</h3>
+            <p class="muted">"Modeling, simulating, and building a spider robot using SG90 servo motors and Arduino control, starting with initial kinematic simulation and moving towards physical implementation.".</p>
+            <div class="skills">
+              <span class="chip">Arduino</span>
+              <span class="chip">Servos</span>
+              <span class="chip">Mechanics</span>
+            </div>
+          </div>
+          <img src="71+2ghvXhQL.jpg" alt="Robotics project" />
+        </div>
+
+        <div class="card project">
+          <div>
+            <h3>Light Alarm Circuit</h3>
+            <p class="muted">LDR + BC547 + buzzer circuit designed and simulated in Proteus with documented schematic and BOM.</p>
+            <div class="skills">
+              <span class="chip">Proteus</span>
+              <span class="chip">Electronics</span>
+            </div>
+          </div>
+          <img src="tutorial11-12.jpg" alt="Electronics project" />
+        </div>
+
+        <div class="card project">
+          <div>
+            <h3> Amaal Platform Website</h3>
+            <p class="muted"> A fully cloud-based solution designed to help businesses, organizations, and charities streamline operations, boost productivity, and enhance customer communication.</p>
+            <div class="skills">
+              <span class="chip">HTML/CSS/JS</span>
+              <span class="chip">UI/UX</span>
+            </div>
+          </div>
+          <img src="slide1.png" alt="Amaal Platform Website" />
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / TIMELINE -->
+    <section id="experience">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <span class="muted">Learning & hands-on</span>
+      </div>
+      <div class="card timeline">
+        <div class="t-item">
+          <h3>Engine Mechanical System – GB Academy | 2024</h3>
+          <p class="muted">Practical training on engine components and maintenance, including a full teardown & reassembly.</p>
+        </div>
+        <div class="t-item">
+          <h3>Fluid Flow Optimization in Francis Turbines</h3>
+          <p class="muted">University project focusing on flow improvement with simulation tools.</p>
+        </div>
+        <div class="t-item">
+          <h3>Arduino & Robotics Projects</h3>
+          <p class="muted">Prototyping simple robots and electronic circuits with proper documentation and 3D design.</p>
+        </div>
+        <div class="t-item">
+          <h3>Intership - Nissan Auto Egypt - Kasrawy Group</h3>
+          <p class="muted">Successfully completed a 1-month intensive hands-on automotive training at Nissan Auto Egypt – Kasrawy Group, covering engine work, diagnostics, maintenance, and customer service operations. This experience enhanced my technical expertise, teamwork, and professional skills for future career growth.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATES -->
+    <section id="certs">
+      <div class="sec-head">
+        <h2>Certificates</h2>
+        <span class="muted">Selected</span>
+      </div>
+      <div class="grid cols-3">
+        <div class="card">
+           <h3><i class="fa-solid fa-certificate"></i> >Intership - Nissan Auto Egypt</h3>
+          <p class="muted">Automotive Practical Skills Development - Kasrawy Group</p>
+        
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-certificate"></i> Engine Mechanical System</h3>
+          <p class="muted">GB Academy – practical engine experience.</p>
+        </div>
+        <div class="card">
+          <h3><i class="fa-solid fa-certificate"></i> Data Analytics Foundations</h3>
+          <p class="muted">LinkedIn Learning – key concepts for data-driven decisions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="sec-head">
+        <h2>Contact</h2>
+        <span class="muted">Open to work or collaboration</span>
+      </div>
+      <div class="card">
+        <form class="grid cols-2" onsubmit="sendEmail(event)">
+          <div>
+            <label>Name</label>
+            <input class="input" type="text" name="name" required />
+          </div>
+          <div>
+            <label>Email</label>
+            <input class="input" type="email" name="email" required />
+          </div>
+          <div class="cols-2" style="grid-column:1/-1">
+            <label>Message</label>
+            <textarea class="input" name="message" rows="5" required></textarea>
+          </div>
+          <div>
+            <button class="btn primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Send</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
+        <small>© <span id="year"></span> Omar Osama. All rights reserved.</small>
+        <small class="muted">Designed in royal blue & silver.</small>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // mailto sender
+    function sendEmail(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const body = encodeURIComponent(`${data.message}
+
+— From: ${data.name} <${data.email}>`);
+      const subject = encodeURIComponent('Message from your portfolio');
+      window.location.href = `mailto:omar.osama@example.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</body>
+</html>
